@@ -9,9 +9,6 @@
       --card-bg: #1e293b;
       --text-main: #f8fafc;
       --text-sub: #94a3b8;
-      --accent: #d97706;
-      --accent-hover: #b45309;
-      --completed-bg: #064e3b;
       --border: #334155;
     }
 
@@ -58,22 +55,24 @@
     .animal-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 12px;
     }
 
     @media (min-width: 640px) {
       .animal-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       }
     }
 
     .animal-card {
       background-color: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
+      border-radius: 10px;
+      padding: 14px 16px;
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
       transition: border-color 0.2s, background-color 0.2s;
     }
 
@@ -82,58 +81,17 @@
       background-color: #0f2922;
     }
 
-    .image-container {
-      width: 100%;
-      height: 160px;
-      background-color: #0f172a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .image-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .upload-btn {
-      background-color: rgba(30, 41, 59, 0.85);
-      color: var(--text-main);
-      border: 1px dashed var(--accent);
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      text-align: center;
-    }
-
-    .file-input {
-      display: none;
-    }
-
-    .card-content {
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      flex-grow: 1;
-    }
-
-    .checkbox-row {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
+    .animal-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fef08a;
+      line-height: 1.3;
     }
 
     .checkbox-container {
       display: flex;
       align-items: center;
       cursor: pointer;
-      padding-top: 2px;
     }
 
     .checkbox-container input {
@@ -141,29 +99,6 @@
       height: 22px;
       accent-color: #10b981;
       cursor: pointer;
-    }
-
-    .animal-name {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #fef08a;
-      line-height: 1.3;
-    }
-
-    .info-group {
-      font-size: 0.85rem;
-    }
-
-    .info-label {
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 2px;
-      display: block;
-    }
-
-    .info-text {
-      color: var(--text-sub);
-      line-height: 1.35;
     }
 
     .reset-btn {
@@ -200,83 +135,83 @@
       {
         category: 'Dugbogs / Cava-Charcos (Bestas)',
         items: [
-          { id: 'd1', name: 'Cava-Charco-de-Lombo-de-Pedra', location: 'Pântano do Vau do Sul, Costa de Clagmar', desc: 'Mais raro que os outros. Costuma se camuflar entre as rochas perto da água.', captured: false },
-          { id: 'd2', name: 'Grande Cava-Charco Espinhoso', location: 'Floresta Proibida, Ninhos de Dugbog', desc: 'Ataca lançando espinhos. Use Levioso na língua quando ele tentar te puxar.', captured: true },
-          { id: 'd3', name: 'Cava-Charco Erióforo', location: 'Pântanos e Margens de rios', desc: 'Encontrado frequentemente perto de áreas com vegetação densa e água.', captured: true }
+          { id: 'd1', name: 'Cava-Charco-de-Lombo-de-Pedra', captured: false },
+          { id: 'd2', name: 'Grande Cava-Charco Espinhoso', captured: true },
+          { id: 'd3', name: 'Cava-Charco Erióforo', captured: true }
         ]
       },
       {
         category: 'Cinzais (Humanos)',
         items: [
-          { id: 'a1', name: 'Chefe dos Cinzais ', location: 'Acampamentos de Bandidos, Arenas de Batalha', desc: 'Utiliza feitiços de redução. Quebre o escudo amarelo com feitiços de Controle.', captured: true },
-          { id: 'a2', name: 'Brutamonte dos Cinzais', location: 'Acampamentos de Bandidos', desc: 'Inimigo rápido que ataca à distância.', captured: true },
-          { id: 'a3', name: 'Cinzal Assassina', location: 'Acampamentos de Bandidos, Missões de História', desc: 'Usa feitiços de maldição avançados. Derrote rapidamente.', captured: true },
-          { id: 'a4', name: 'Cinzal Paralisante', location: 'Castelo de Clagmar, Acampamentos de Bandidos', desc: 'Mantenha distância e desvie dos disparos de longa distância.', captured: false },
-          { id: 'a5', name: 'Soldado dos Cinzais', location: 'Região Sul de Hogwarts, Fortes de Bandidos', desc: 'Tropa básica dos Ashwinders, ataca em grupos.', captured: true },
-          { id: 'a6', name: 'Cinzal Defensor', location: 'Cabo do Solar, Castelo de Clagmar', desc: 'Invoca raios poderosos. Use Arresto Momentum quando ele erguer a varinha.', captured: true }
+          { id: 'a1', name: 'Chefe dos Cinzais', captured: true },
+          { id: 'a2', name: 'Brutamonte dos Cinzais', captured: true },
+          { id: 'a3', name: 'Cinzal Assassina', captured: true },
+          { id: 'a4', name: 'Cinzal Paralisante', captured: false },
+          { id: 'a5', name: 'Soldado dos Cinzais', captured: true },
+          { id: 'a6', name: 'Cinzal Defensor', captured: true }
         ]
       },
       {
         category: 'Caçadores / Poachers (Humanos)',
         items: [
-          { id: 'p1', name: 'Caçador Duelista', location: 'Região Norte de Hogwarts, Acampamentos', desc: 'Luta rápida com esquivas constantes.', captured: true },
-          { id: 'p2', name: 'Rastreador dos Caçadores', location: 'Acampamentos de Caçadores', desc: 'Especialista em cercar o jogador.', captured: true },
-          { id: 'p3', name: 'Caçadora Patrulheira', location: 'Acampamentos e Estradas', desc: 'Aplica disparos à distância com arco/feitiços.', captured: true },
-          { id: 'p4', name: 'Caçador Perseguidor', location: 'Fortes e Missões Principais (High Keep)', desc: 'Ataca das sombras e usa feitiços de contenção.', captured: true },
-          { id: 'p5', name: 'Caçador Carrasco', location: 'Costa de Poidsear, Acampamentos', desc: 'Lança feitiços de fogo devastadores.', captured: true },
-          { id: 'p6', name: 'Caçador Animago', location: 'Vale de Hogsmeade, Acampamentos', desc: 'Se transforma em lobo! Conta a forma humana e a forma animal.', captured: true }
+          { id: 'p1', name: 'Caçador Duelista', captured: true },
+          { id: 'p2', name: 'Rastreador dos Caçadores', captured: true },
+          { id: 'p3', name: 'Caçadora Patrulheira', captured: true },
+          { id: 'p4', name: 'Caçador Perseguidor', captured: true },
+          { id: 'p5', name: 'Caçador Carrasco', captured: true },
+          { id: 'p6', name: 'Caçador Animago', captured: true }
         ]
       },
       {
         category: 'Apoiadores / Goblins',
         items: [
-          { id: 'g1', name: 'Apoiador Assassino', location: 'Ruínas de Korrow, Minas de Goblins', desc: 'Ataca rapidamente com adagas e desparece.', captured: false },
-          { id: 'g2', name: 'Comandante Apoiador', location: 'Acampamentos de Goblins, Ruínas de Korrow', desc: 'Usa magia antiga modificada para criar escudos pesados.', captured: false },
-          { id: 'g3', name: 'Sentinela Apoiador', location: 'Ruínas de Korrow, Acampamentos', desc: 'Guarda entradas estratégicas e alerta acampamentos.', captured: true },
-          { id: 'g4', name: 'Guerreiro Duende', location: 'Estradas e Acampamentos de Ranrok', desc: 'Inimigo do corpo a corpo, combate direto com machado.', captured: true },
-          { id: 'g5', name: 'Patrulheiro Apoiador', location: 'Acampamentos de Goblins', desc: 'Usa bestas carregadas com energia mágica à distância.', captured: true }
+          { id: 'g1', name: 'Apoiador Assassino', captured: false },
+          { id: 'g2', name: 'Comandante Apoiador', captured: false },
+          { id: 'g3', name: 'Sentinela Apoiador', captured: true },
+          { id: 'g4', name: 'Guerreiro Duende', captured: true },
+          { id: 'g5', name: 'Patrulheiro Apoiador', captured: true }
         ]
       },
       {
         category: 'Mortos-Vivos',
         items: [
-          { id: 'i1', name: 'Inferius', location: 'Cofres do Tesouro, Tumbas, Ninhos de Inferi', desc: 'Dica: Use Ataque Básico repetido sem fogo para carregar barra de Magia Antiga.', captured: true }
+          { id: 'i1', name: 'Inferius', captured: true }
         ]
       },
       {
         category: 'Aranhas',
         items: [
-          { id: 's1', name: 'Batedora Venenosa', location: 'Floresta Proibida, Ninhos de Aranha', desc: 'Ataca em emboscada pulando diretamente no jogador.', captured: false },
-          { id: 's2', name: 'Espreitadora Venenosa', location: 'Floresta Proibida, Cavernas', desc: 'Especialista em se esconder sob a terra.', captured: false },
-          { id: 's3', name: 'Rastejadora Venenosa Cuspidora', location: 'Região de Hogwarts, Ninhos de Aranha', desc: 'Dispara veneno à distância. Dê parry para rebater.', captured: false },
-          { id: 's4', name: 'Matriarca Venenosa', location: 'Floresta Proibida, Ninhos Grandes', desc: 'Aranha de grande porte. Lança veneno em área.', captured: true },
-          { id: 's5', name: 'Batedora Espinhenta', location: 'Floresta Proibida', desc: 'Espécie rápida e agressiva.', captured: true },
-          { id: 's6', name: 'Emboscadora Espinhenta', location: 'Floresta Proibida, Ninhos de Aranha', desc: 'Surge do solo para ataques surpresa.', captured: false },
-          { id: 's7', name: 'Atiradora Espinhenta', location: 'Ninhos de Aranha pelo mapa', desc: 'Lança projéteis espinhosos de longe.', captured: true },
-          { id: 's8', name: 'Matriarca Espinhenta', location: 'Ninhos Grandes de Aranhas Espinhosas', desc: 'Líder do ninho, extremamente resistente.', captured: true }
+          { id: 's1', name: 'Batedora Venenosa', captured: false },
+          { id: 's2', name: 'Espreitadora Venenosa', captured: false },
+          { id: 's3', name: 'Rastejadora Venenosa Cuspidora', captured: false },
+          { id: 's4', name: 'Matriarca Venenosa', captured: true },
+          { id: 's5', name: 'Batedora Espinhenta', captured: true },
+          { id: 's6', name: 'Emboscadora Espinhenta', captured: false },
+          { id: 's7', name: 'Atiradora Espinhenta', captured: true },
+          { id: 's8', name: 'Matriarca Espinhenta', captured: true }
         ]
       },
       {
         category: 'Trolls',
         items: [
-          { id: 't1', name: 'Trasgo da Floresta', location: 'Floresta Proibida, Guarnições de Troll', desc: 'Encontrado em áreas densas da floresta.', captured: false },
-          { id: 't2', name: 'Trasgo Montanhês', location: 'Regiões Montanhosas do Sul', desc: 'Usa rochas pesadas como projétil.', captured: false },
-          { id: 't3', name: 'Trasgo Fluvial', location: 'Margens de Rios, Vale de Hogwarts', desc: 'Troll habitante de áreas aquáticas.', captured: true }
+          { id: 't1', name: 'Trasgo da Floresta', captured: false },
+          { id: 't2', name: 'Trasgo Montanhês', captured: false },
+          { id: 't3', name: 'Trasgo Fluvial', captured: true }
         ]
       },
       {
         category: 'Caninos (Fácil de esquecer)',
         items: [
-          { id: 'c1', name: '?Vira-lata?', location: 'Vale de Hogsmeade, Ninhos pelo Mapa', desc: 'Não aparece no log de coleção principal, mas conta para os desafios!', captured: false },
-          { id: 'c2', name: 'Vira-lata das Trevas', location: 'Floresta Proibida, Região de Feldcroft', desc: 'Canino agressivo impregnado com magia das trevas.', captured: true }
+          { id: 'c1', name: 'Vira-lata', captured: false },
+          { id: 'c2', name: 'Vira-lata das Trevas', captured: true }
         ]
       }
     ];
 
-    let categories = JSON.parse(localStorage.getItem('hogwarts_bestiary')) || initialData;
+    let categories = JSON.parse(localStorage.getItem('hogwarts_checklist_clean')) || initialData;
 
     function saveState() {
-      localStorage.setItem('hogwarts_bestiary', JSON.stringify(categories));
+      localStorage.setItem('hogwarts_checklist_clean', JSON.stringify(categories));
     }
 
     function renderAll() {
@@ -299,31 +234,10 @@
           card.className = `animal-card ${item.captured ? 'captured' : ''}`;
 
           card.innerHTML = `
-            <div class="image-container">
-              ${item.image 
-                ? `<img src="${item.image}" alt="${item.name}">` 
-                : `<label class="upload-btn">
-                    📷 Adicionar Foto
-                    <input type="file" class="file-input" accept="image/*" onchange="uploadImage(event, '${item.id}')">
-                   </label>`
-              }
-            </div>
-            <div class="card-content">
-              <div class="checkbox-row">
-                <span class="animal-name">${item.name}</span>
-                <label class="checkbox-container">
-                  <input type="checkbox" ${item.captured ? 'checked' : ''} onchange="toggleCapture('${item.id}')">
-                </label>
-              </div>
-              <div class="info-group">
-                <span class="info-label">📍 Localização:</span>
-                <p class="info-text">${item.location}</p>
-              </div>
-              <div class="info-group">
-                <span class="info-label">📜 Dica / Descrição:</span>
-                <p class="info-text">${item.desc}</p>
-              </div>
-            </div>
+            <span class="animal-name">${item.name}</span>
+            <label class="checkbox-container">
+              <input type="checkbox" ${item.captured ? 'checked' : ''} onchange="toggleCapture('${item.id}')">
+            </label>
           `;
           grid.appendChild(card);
         });
@@ -344,33 +258,14 @@
       renderAll();
     }
 
-    function uploadImage(event, id) {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          categories.forEach(cat => {
-            const found = cat.items.find(i => i.id === id);
-            if (found) {
-              found.image = e.target.result;
-            }
-          });
-          saveState();
-          renderAll();
-        };
-        reader.readAsDataURL(file);
-      }
-    }
-
     function resetToDefault() {
-      if (confirm("Tem certeza que deseja restaurar a lista inicial? Suas fotos adicionadas serão apagadas.")) {
-        localStorage.removeItem('hogwarts_bestiary');
+      if (confirm("Tem certeza que deseja restaurar a lista inicial?")) {
+        localStorage.removeItem('hogwarts_checklist_clean');
         categories = JSON.parse(JSON.stringify(initialData));
         renderAll();
       }
     }
 
-    // Inicializar na tela
     renderAll();
   </script>
 </body>
