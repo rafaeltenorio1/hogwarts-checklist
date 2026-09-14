@@ -55,23 +55,24 @@
     .animal-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 12px;
+      gap: 16px;
     }
 
     @media (min-width: 640px) {
       .animal-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       }
     }
 
     .animal-card {
       background-color: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 16px;
+      border-radius: 12px;
+      overflow: hidden;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      padding: 12px;
       gap: 12px;
       transition: border-color 0.2s, background-color 0.2s;
     }
@@ -81,8 +82,33 @@
       background-color: #0f2922;
     }
 
+    .image-container {
+      width: 100%;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #0b1120;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .card-footer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
     .animal-name {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: #fef08a;
       line-height: 1.3;
@@ -123,7 +149,7 @@
 
   <div class="header">
     <h1> MariPsvita</h1>
-    <p>Checklist - Hogwarts Legacy</p>
+    <p>Guia & Checklist - Hogwarts Legacy</p>
   </div>
 
   <div id="categoriesContainer"></div>
@@ -135,83 +161,83 @@
       {
         category: 'Dugbogs / Cava-Charcos (Bestas)',
         items: [
-          { id: 'd1', name: 'Cava-Charco-de-Lombo-de-Pedra', captured: false },
-          { id: 'd2', name: 'Grande Cava-Charco Espinhoso', captured: true },
-          { id: 'd3', name: 'Cava-Charco Erióforo', captured: true }
+          { id: 'd1', name: 'Cava-Charco-de-Lombo-de-Pedra', captured: false, image: 'Images/cava-charco-de-lombo-de-pedra.png' },
+          { id: 'd2', name: 'Grande Cava-Charco Espinhoso', captured: true, image: 'Images/grande-cava-charco-espinhoso.png' },
+          { id: 'd3', name: 'Cava-Charco Erióforo', captured: true, image: 'Images/cava-charco-eriofiro.png' }
         ]
       },
       {
         category: 'Cinzais (Humanos)',
         items: [
-          { id: 'a1', name: 'Chefe dos Cinzais', captured: true },
-          { id: 'a2', name: 'Brutamonte dos Cinzais', captured: true },
-          { id: 'a3', name: 'Cinzal Assassina', captured: true },
-          { id: 'a4', name: 'Cinzal Paralisante', captured: false },
-          { id: 'a5', name: 'Soldado dos Cinzais', captured: true },
-          { id: 'a6', name: 'Cinzal Defensor', captured: true }
+          { id: 'a1', name: 'Chefe dos Cinzais', captured: true, image: 'Images/chefe-dos-cinzais.png' },
+          { id: 'a2', name: 'Brutamonte dos Cinzais', captured: true, image: 'Images/brutamonte-dos-cinzais.png' },
+          { id: 'a3', name: 'Cinzal Assassina', captured: true, image: 'Images/cinzal_assasina.png' },
+          { id: 'a4', name: 'Cinzal Paralisante', captured: false, image: 'Images/cinzal-paralisante.png' },
+          { id: 'a5', name: 'Soldado dos Cinzais', captured: true, image: 'Images/soldado-dos-cinzais.png' },
+          { id: 'a6', name: 'Cinzal Defensor', captured: true, image: 'Images/cinzal-defensor.png' }
         ]
       },
       {
         category: 'Caçadores / Poachers (Humanos)',
         items: [
-          { id: 'p1', name: 'Caçador Duelista', captured: true },
-          { id: 'p2', name: 'Rastreador dos Caçadores', captured: true },
-          { id: 'p3', name: 'Caçadora Patrulheira', captured: true },
-          { id: 'p4', name: 'Caçador Perseguidor', captured: true },
-          { id: 'p5', name: 'Caçador Carrasco', captured: true },
-          { id: 'p6', name: 'Caçador Animago', captured: true }
+          { id: 'p1', name: 'Caçador Duelista', captured: true, image: 'Images/cacador-duelista.png' },
+          { id: 'p2', name: 'Rastreador dos Caçadores', captured: true, image: 'Images/rastreador-dos-cacadores.png' },
+          { id: 'p3', name: 'Caçadora Patrulheira', captured: true, image: 'Images/cacadora-patrulheira.png' },
+          { id: 'p4', name: 'Caçador Perseguidor', captured: true, image: 'Images/cacador-perseguidor.png' },
+          { id: 'p5', name: 'Caçador Carrasco', captured: true, image: 'Images/cacador-carrasco.png' },
+          { id: 'p6', name: 'Caçador Animago', captured: true, image: 'Images/cacador-animago.png' }
         ]
       },
       {
         category: 'Apoiadores / Goblins',
         items: [
-          { id: 'g1', name: 'Apoiador Assassino', captured: false },
-          { id: 'g2', name: 'Comandante Apoiador', captured: false },
-          { id: 'g3', name: 'Sentinela Apoiador', captured: true },
-          { id: 'g4', name: 'Guerreiro Duende', captured: true },
-          { id: 'g5', name: 'Patrulheiro Apoiador', captured: true }
+          { id: 'g1', name: 'Apoiador Assassino', captured: false, image: 'Images/apoiador-assassino.png' },
+          { id: 'g2', name: 'Comandante Apoiador', captured: false, image: 'Images/comandante-apoiador.png' },
+          { id: 'g3', name: 'Sentinela Apoiador', captured: true, image: 'Images/sentinela-apoiador.png' },
+          { id: 'g4', name: 'Guerreiro Duende', captured: true, image: 'Images/guerreiro-duende.png' },
+          { id: 'g5', name: 'Patrulheiro Apoiador', captured: true, image: 'Images/patrulheiro-apoiador.png' }
         ]
       },
       {
         category: 'Mortos-Vivos',
         items: [
-          { id: 'i1', name: 'Inferius', captured: true }
+          { id: 'i1', name: 'Inferius', captured: true, image: 'Images/uferius.png' }
         ]
       },
       {
         category: 'Aranhas',
         items: [
-          { id: 's1', name: 'Batedora Venenosa', captured: false },
-          { id: 's2', name: 'Espreitadora Venenosa', captured: false },
-          { id: 's3', name: 'Rastejadora Venenosa Cuspidora', captured: false },
-          { id: 's4', name: 'Matriarca Venenosa', captured: true },
-          { id: 's5', name: 'Batedora Espinhenta', captured: true },
-          { id: 's6', name: 'Emboscadora Espinhenta', captured: false },
-          { id: 's7', name: 'Atiradora Espinhenta', captured: true },
-          { id: 's8', name: 'Matriarca Espinhenta', captured: true }
+          { id: 's1', name: 'Batedora Venenosa', captured: false, image: 'Images/batedora-venenosa.png' },
+          { id: 's2', name: 'Espreitadora Venenosa', captured: false, image: 'Images/espreitadora-venenosa.png' },
+          { id: 's3', name: 'Rastejadora Venenosa Cuspidora', captured: false, image: 'Images/rastejadora-venenosa-cuspidora.png' },
+          { id: 's4', name: 'Matriarca Venenosa', captured: true, image: 'Images/matriarca-venenosa.png' },
+          { id: 's5', name: 'Batedora Espinhenta', captured: true, image: 'Images/batedora-espinhenta.png' },
+          { id: 's6', name: 'Emboscadora Espinhenta', captured: false, image: 'Images/aracna-espinhenta-espreitadora.png' },
+          { id: 's7', name: 'Atiradora Espinhenta', captured: true, image: 'Images/atiradora-espinhenta.png' },
+          { id: 's8', name: 'Matriarca Espinhenta', captured: true, image: 'Images/matriarca-espinhenta.png' }
         ]
       },
       {
         category: 'Trolls',
         items: [
-          { id: 't1', name: 'Trasgo da Floresta', captured: false },
-          { id: 't2', name: 'Trasgo Montanhês', captured: false },
-          { id: 't3', name: 'Trasgo Fluvial', captured: true }
+          { id: 't1', name: 'Trasgo da Floresta', captured: false, image: 'Images/trasgo-da-floresta.png' },
+          { id: 't2', name: 'Trasgo Montanhês', captured: false, image: 'Images/trasgo-montanhes.png' },
+          { id: 't3', name: 'Trasgo Fluvial', captured: true, image: 'Images/trasgo-fluvial.png' }
         ]
       },
       {
         category: 'Caninos (Fácil de esquecer)',
         items: [
-          { id: 'c1', name: 'Vira-lata', captured: false },
-          { id: 'c2', name: 'Vira-lata das Trevas', captured: true }
+          { id: 'c1', name: 'Vira-lata', captured: false, image: 'Images/vira-lata-das-trevas.png' },
+          { id: 'c2', name: 'Vira-lata das Trevas', captured: true, image: 'Images/vira-lata-das-trevas.png' }
         ]
       }
     ];
 
-    let categories = JSON.parse(localStorage.getItem('hogwarts_checklist_clean')) || initialData;
+    let categories = JSON.parse(localStorage.getItem('hogwarts_checklist_v2')) || initialData;
 
     function saveState() {
-      localStorage.setItem('hogwarts_checklist_clean', JSON.stringify(categories));
+      localStorage.setItem('hogwarts_checklist_v2', JSON.stringify(categories));
     }
 
     function renderAll() {
@@ -234,10 +260,15 @@
           card.className = `animal-card ${item.captured ? 'captured' : ''}`;
 
           card.innerHTML = `
-            <span class="animal-name">${item.name}</span>
-            <label class="checkbox-container">
-              <input type="checkbox" ${item.captured ? 'checked' : ''} onchange="toggleCapture('${item.id}')">
-            </label>
+            <div class="image-container">
+              <img src="${item.image}" alt="${item.name}" loading="lazy">
+            </div>
+            <div class="card-footer">
+              <span class="animal-name">${item.name}</span>
+              <label class="checkbox-container">
+                <input type="checkbox" ${item.captured ? 'checked' : ''} onchange="toggleCapture('${item.id}')">
+              </label>
+            </div>
           `;
           grid.appendChild(card);
         });
@@ -260,7 +291,7 @@
 
     function resetToDefault() {
       if (confirm("Tem certeza que deseja restaurar a lista inicial?")) {
-        localStorage.removeItem('hogwarts_checklist_clean');
+        localStorage.removeItem('hogwarts_checklist_v2');
         categories = JSON.parse(JSON.stringify(initialData));
         renderAll();
       }
