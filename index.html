@@ -22,58 +22,60 @@
     body {
       background-color: var(--bg-color);
       color: var(--text-main);
-      padding: 16px;
+      padding: 10px;
     }
 
     .header {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
     .header h1 {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       color: #fbbf24;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .header p {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       color: var(--text-sub);
     }
 
     .category-title {
-      font-size: 1.3rem;
+      font-size: 1.05rem;
       color: #38bdf8;
-      margin: 28px 0 14px 0;
-      padding-bottom: 6px;
+      margin: 18px 0 10px 0;
+      padding-bottom: 4px;
       border-bottom: 2px solid #0284c7;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
+    /* Grid configurado para força/permitir 3 colunas em telas pequenas */
     .animal-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
     }
 
     @media (min-width: 640px) {
       .animal-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 12px;
       }
     }
 
     .animal-card {
       background-color: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 8px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 12px;
-      gap: 12px;
+      padding: 6px;
+      gap: 6px;
       transition: border-color 0.2s, background-color 0.2s;
     }
 
@@ -82,14 +84,15 @@
       background-color: #0f2922;
     }
 
+    /* Altura ajustada para 3 colunas */
     .image-container {
       width: 100%;
-      height: 140px;
+      height: 110px;
       display: flex;
       align-items: center;
       justify-content: center;
       background-color: #0b1120;
-      border-radius: 8px;
+      border-radius: 6px;
       overflow: hidden;
     }
 
@@ -104,14 +107,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 4px;
     }
 
     .animal-name {
-      font-size: 0.95rem;
+      font-size: 0.75rem;
       font-weight: 600;
       color: #fef08a;
-      line-height: 1.3;
+      line-height: 1.15;
+      word-break: break-word;
     }
 
     .checkbox-container {
@@ -121,8 +125,8 @@
     }
 
     .checkbox-container input {
-      width: 22px;
-      height: 22px;
+      width: 18px;
+      height: 18px;
       accent-color: #10b981;
       cursor: pointer;
     }
@@ -135,7 +139,7 @@
       padding: 10px;
       border-radius: 8px;
       cursor: pointer;
-      margin-top: 30px;
+      margin-top: 24px;
       font-size: 0.85rem;
     }
 
@@ -148,7 +152,7 @@
 <body>
 
   <div class="header">
-    <h1> MariPsvita</h1>
+    <h1>MariPsvita</h1>
     <p>Guia & Checklist - Hogwarts Legacy</p>
   </div>
 
@@ -212,7 +216,7 @@
           { id: 's3', name: 'Rastejadora Venenosa Cuspidora', captured: false, image: 'Images/rastejadora-venenosa-cuspidora.png' },
           { id: 's4', name: 'Matriarca Venenosa', captured: true, image: 'Images/matriarca-venenosa.png' },
           { id: 's5', name: 'Batedora Espinhenta', captured: true, image: 'Images/batedora-espinhenta.png' },
-          { id: 's6', name: 'Aracn Espinhenta Espreitadora', captured: false, image: 'Images/aracna-espinhenta-espreitadora.png' },
+          { id: 's6', name: 'Aracna Espinhenta Espreitadora', captured: false, image: 'Images/aracna-espinhenta-espreitadora.png' },
           { id: 's7', name: 'Atiradora Espinhenta', captured: true, image: 'Images/atiradora-espinhenta.png' },
           { id: 's8', name: 'Matriarca Espinhenta', captured: true, image: 'Images/matriarca-espinhenta.png' }
         ]
